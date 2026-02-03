@@ -1,0 +1,365 @@
+/* Main container */
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 50%, #ff6b6b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating hearts background */
+.hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: floatUp linear infinite;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Main card */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 50px 60px;
+  text-align: center;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(255, 105, 180, 0.3);
+  z-index: 1;
+  position: relative;
+  max-width: 90%;
+  animation: cardPulse 2s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Totoro character with heart */
+.character {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.totoro-img {
+  width: 150px;
+  height: auto;
+  animation: characterBounce 1s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes characterBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.character-heart {
+  position: absolute;
+  bottom: 10px;
+  right: calc(50% - 90px);
+  font-size: 30px;
+  color: #ff4757;
+  animation: heartBeat 0.8s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+/* Typography */
+.title {
+  font-size: 2.5rem;
+  color: #ff4757;
+  margin: 0 0 15px 0;
+  font-family: 'Georgia', serif;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+.question {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-family: 'Georgia', serif;
+}
+
+.from {
+  font-size: 1.2rem;
+  color: #ff6b81;
+  font-style: italic;
+  margin: 0 0 30px 0;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  min-height: 60px;
+  position: relative;
+}
+
+.btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.yes-btn {
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  color: white;
+  box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+}
+
+.yes-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 71, 87, 0.6);
+}
+
+.no-btn {
+  background: #ddd;
+  color: #666;
+}
+
+.no-btn:hover {
+  background: #ccc;
+}
+
+/* Valentine Celebration Screen */
+.celebration {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff6b81 0%, #ff4757 50%, #e84363 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Floating hearts */
+.celebration-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-celebration-heart {
+  position: absolute;
+  bottom: -50px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: floatUpHeart linear infinite;
+}
+
+@keyframes floatUpHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Confetti */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 10px;
+  animation: confettiFall linear infinite 5s;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0.7;
+  }
+}
+
+/* Main celebration content */
+.celebration-content {
+  text-align: center;
+  z-index: 10;
+  animation: popIn 0.6s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.celebration-title {
+  font-size: 5rem;
+  color: white;
+  margin: 0 0 20px 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.celebration-image {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.names-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 2.5rem;
+  color: white;
+  font-family: 'Georgia', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  flex: 1;
+}
+
+.name:first-child {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.name:last-child {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.heart-icon {
+  font-size: 2.5rem;
+  color: white;
+  animation: heartBeat 0.8s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  margin-left: 1em;
+}
+
+.celebration-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    padding: 30px 40px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .question {
+    font-size: 1.4rem;
+  }
+
+  .bear-face {
+    font-size: 60px;
+  }
+
+  .celebration-title {
+    font-size: 3rem;
+  }
+
+  .big-heart {
+    font-size: 100px;
+  }
+
+  .celebration-text {
+    font-size: 2rem;
+  }
+}
